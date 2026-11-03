@@ -14,6 +14,19 @@ git config user.name "이름"
 git config user.email "GitHub 계정 이메일"
 ```
 
+## 팀 첫날 설정
+
+강사가 저장소와 main 보호 규칙(PR 필수, 승인 1명)을 만들어 두었습니다. 아래는 팀이 합니다. 모두 브랜치 → PR로 올립니다.
+
+- [ ] README 맨 위 `<팀 이름> — <서비스 이름>`과 한 줄 소개를 바꿈
+- [ ] [역할](roles.md)에 팀원, GitHub 아이디, 맡은 서비스, 공통 영역 적기
+- [ ] [CODEOWNERS](../.github/CODEOWNERS)에 서비스 폴더별 담당자 적기
+- [ ] Projects 보드 만들기: 조직 Projects → New project → Board → Status에 In Review 추가(Todo · In Progress · In Review · Done) → 필드 "서비스" 추가 → 이 저장소 Projects 탭에서 Link a project → README 링크 표에 주소 적기
+- [ ] [팀 운영 약속](team.md) 채우기
+- [ ] 일감 양식으로 첫 이슈 만들기: [기획서](plan.md) 작성
+
+채울 순서는 [기획서](plan.md) → [요구사항](requirements.md) → [아키텍처](architecture.md) → [기술 스택](tech-stack.md) → [API 명세](api/)입니다.
+
 ## 작업 순서
 
 이슈 하나에 브랜치 하나, PR 하나로 작업합니다.
