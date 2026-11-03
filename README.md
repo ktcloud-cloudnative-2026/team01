@@ -20,6 +20,7 @@
 | 협업 | [역할](docs/roles.md) | 서비스 담당 · 공통 영역 담당 |
 | | [공통 규칙](docs/conventions.md) | Git 전략 · 코드 규칙 · 비밀값 |
 | | [팀 운영 약속](docs/team.md) | 완료 기준 · 회의 · 의사결정 |
+| | [GitHub 사용 가이드](docs/github-guide.md) | clone · 브랜치 · PR · 리뷰 |
 | 운영 | [런북](docs/runbook.md) | 장애별 확인 명령 · 조치 |
 | | [결정 기록](docs/adr/) | 무엇을 왜 골랐나 |
 
