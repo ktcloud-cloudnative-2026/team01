@@ -51,6 +51,6 @@ deploy/     Kubernetes 매니페스트 · Argo CD
 - [ ] 맨 위 제목 · 한 줄 소개를 팀 서비스로 바꿈
 - [ ] [역할](docs/roles.md)에 팀원 · GitHub 아이디 · 맡은 서비스 · 공통 영역 적기
 - [ ] [CODEOWNERS](.github/CODEOWNERS)에 서비스 폴더별 담당자 적기
-- [ ] Projects 보드 만들기 — 조직 Projects → New project → Board, 칸: 할 일 · 진행 중 · 리뷰 · 완료, 필드: 서비스 → 이 저장소에 연결하고 위 "링크" 표에 주소 적기
+- [ ] Projects 보드 만들기 — 조직 Projects → New project → Board, Status에 In Review 추가(Todo · In Progress · In Review · Done), 필드: 서비스 → 이 저장소 Projects 탭에서 Link a project → 위 "링크" 표에 주소 적기
 - [ ] [팀 운영 약속](docs/team.md) 채우기
 - [ ] 첫 이슈 만들기 — "New issue → 일감"으로 [기획서](docs/plan.md) 작성 이슈
