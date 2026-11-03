@@ -1,7 +1,6 @@
 # <팀 이름> — <서비스 이름>
 
 > 이 저장소가 프로젝트의 원본입니다. 기획 · 설계 문서, 코드, 배포 파일, 결정 기록을 모두 여기에 둡니다.
-> 템플릿으로 만든 뒤 `<...>` 부분을 팀 내용으로 바꿉니다.
 
 ## 한 줄 소개
 <무엇을 하는 서비스인가 — 예: 같은 좌석이 두 번 팔리지 않는 공연 예매 서비스>
@@ -41,17 +40,3 @@ services/   서비스 코드 — 서비스마다 폴더 하나
 deploy/     Kubernetes 매니페스트 · Argo CD
 .github/    PR · 이슈 템플릿, CI 워크플로
 ```
-
-## 시작하기
-1. [역할](docs/roles.md)과 [팀 운영 약속](docs/team.md)을 채웁니다
-2. [기획서](docs/plan.md) → [요구사항](docs/requirements.md) → [아키텍처](docs/architecture.md) → [기술 스택](docs/tech-stack.md) → [API 명세](docs/api/) 순서로 채웁니다
-3. 문서를 바꿀 때도 브랜치 → PR → 리뷰를 거칩니다
-
-## 첫날 설정 (팀이 직접)
-강사가 저장소와 main 보호 규칙(PR 필수 · 승인 1명)을 만들어 둡니다. 나머지는 팀이 합니다.
-- [ ] 맨 위 제목 · 한 줄 소개를 팀 서비스로 바꿈
-- [ ] [역할](docs/roles.md)에 팀원 · GitHub 아이디 · 맡은 서비스 · 공통 영역 적기
-- [ ] [CODEOWNERS](.github/CODEOWNERS)에 서비스 폴더별 담당자 적기
-- [ ] Projects 보드 만들기 — 조직 Projects → New project → Board, Status에 In Review 추가(Todo · In Progress · In Review · Done), 필드: 서비스 → 이 저장소 Projects 탭에서 Link a project → 위 "링크" 표에 주소 적기
-- [ ] [팀 운영 약속](docs/team.md) 채우기
-- [ ] 첫 이슈 만들기 — "New issue → 일감"으로 [기획서](docs/plan.md) 작성 이슈
