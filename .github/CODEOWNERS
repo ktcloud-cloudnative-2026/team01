@@ -1,0 +1,6 @@
+# 서비스 폴더마다 담당자를 적으면 그 폴더를 바꾼 PR에 리뷰어로 자동 지정됩니다
+# 예:
+# /services/seat/      @<GitHub 아이디>
+# /services/booking/   @<GitHub 아이디>
+# /deploy/             @<클러스터 · GitOps 담당>
+# /.github/workflows/  @<CI/CD 담당>

@@ -1,0 +1,38 @@
+name: 일감
+description: 기능 개발 · 인프라 구성 · 문서 등 하루 안에 끝낼 작업
+title: "[Task] "
+labels: ["task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 무엇을 왜
+      description: 1~3문장
+      placeholder: "예) 좌석 조회 API GET /seats/{id}를 만든다. 예매 서비스가 좌석 상태를 확인해야 하기 때문"
+    validations:
+      required: true
+  - type: input
+    id: requirement
+    attributes:
+      label: 근거 요구사항
+      placeholder: "예) docs/requirements.md#us-02"
+  - type: input
+    id: service
+    attributes:
+      label: 서비스 · 영역
+      placeholder: "예) seat / CI/CD / 관측"
+    validations:
+      required: true
+  - type: textarea
+    id: dod
+    attributes:
+      label: 완료 조건
+      description: 모두 체크해야 완료로 옮김 (docs/team.md의 완료 기준)
+      value: |
+        - [ ] 
+        - [ ] 테스트 통과
+        - [ ] 리뷰 승인 1명
+        - [ ] dev 배포 후 동작 확인
+        - [ ] 관련 문서 수정
+    validations:
+      required: true

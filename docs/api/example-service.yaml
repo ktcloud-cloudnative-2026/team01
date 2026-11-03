@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: <서비스 이름> API
+  version: 0.1.0
+  description: <서비스 설명> — 담당 <이름>
+paths:
+  /health:
+    get:
+      summary: 상태 확인
+      responses:
+        "200":
+          description: 정상
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+  /items/{id}:
+    get:
+      summary: <항목 조회>
+      description: US-01
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+        "404":
+          description: 없는 항목
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+        status:
+          type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string

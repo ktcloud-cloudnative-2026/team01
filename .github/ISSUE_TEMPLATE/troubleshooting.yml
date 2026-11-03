@@ -1,0 +1,48 @@
+name: 트러블슈팅
+description: 장애 · 에러 · 예상과 다른 동작. 해결 과정을 남겨 런북의 재료로 씀
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 증상
+      description: 한 문장으로
+      placeholder: "예) dev에서 booking 파드가 CrashLoopBackOff"
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: 환경
+      value: |
+        - 환경: dev / prod
+        - 서비스 · 네임스페이스:
+        - 발생 시각:
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 재현 순서와 확인한 명령
+      value: |
+        1.
+        2.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 에러 · 로그
+      description: 비밀값은 지우고 붙여 넣음
+      render: shell
+  - type: textarea
+    id: cause
+    attributes:
+      label: 원인
+      description: 해결 후 채움
+  - type: textarea
+    id: fix
+    attributes:
+      label: 해결 방법과 재발 방지
+      description: 해결 후 채움. 반복될 일이면 docs/runbook.md에 옮김
