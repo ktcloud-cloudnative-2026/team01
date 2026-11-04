@@ -25,6 +25,23 @@
 | 운영 | [런북](docs/runbook.md) | 장애별 확인 명령 · 조치 |
 | | [결정 기록](docs/adr/) | 무엇을 왜 골랐나 |
 
+## 외부 도구로 작성하기
+
+문서는 이 저장소에 직접 써도 되고, 더 편한 도구로 써도 됩니다. 외부 도구로 쓰면 해당 `docs/` 파일에 링크와 한 줄 요약을 남겨, 이 README에서 모든 문서를 찾을 수 있게 합니다.
+
+| 문서 | 잘 맞는 도구 |
+|---|---|
+| 기획서 · 기술 스택 · 팀 운영 약속 · 회의록 | [Notion](https://www.notion.so), [Google Docs](https://docs.google.com) |
+| 요구사항 · 할 일 | GitHub Projects · Issues, [Notion](https://www.notion.so) 데이터베이스 |
+| 아키텍처 그림 | [draw.io](https://app.diagrams.net), [Excalidraw](https://excalidraw.com), [FigJam](https://www.figma.com/figjam/), [Miro](https://miro.com), [Mermaid](https://mermaid.js.org)(Markdown 안에 바로) |
+| 화면 설계 · 와이어프레임 | [Figma](https://www.figma.com) |
+| API 명세 | [Swagger Editor](https://editor.swagger.io)(OpenAPI 파일), [Postman](https://www.postman.com) |
+| ERD | [dbdiagram.io](https://dbdiagram.io), [ERDCloud](https://www.erdcloud.com) |
+
+- 저장소가 공개이므로 외부 문서는 "링크가 있는 사람 보기"로 공유합니다. 비밀값은 외부 문서에도 쓰지 않습니다
+- 그림은 링크와 함께 PNG 한 장을 `docs/`에 같이 올려 두면 도구가 없어도 볼 수 있습니다
+- API 명세는 코드와 함께 바뀌므로 OpenAPI 파일을 저장소에 두는 것을 권합니다
+
 ## 링크
 
 | 항목 | 링크 |
