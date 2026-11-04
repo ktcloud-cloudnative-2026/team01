@@ -12,7 +12,7 @@
 | 구분 | 문서 | 내용 |
 |---|---|---|
 | 기획 | [기획서](docs/home-iot-plan-v0.2.md)  | 목표 · 범위 · 성공 기준 · 일정 |
-| | [요구사항](docs/requirements.md) | 기능(US-번호) · 비기능 |
+| | [요구사항](docs/Home_IoT_Requirements_v0.1.md) | 기능(US-번호) · 비기능 |
 | 설계 | [아키텍처](docs/architecture.md) | 컨텍스트 · 서비스 구성 · 핵심 시퀀스 · 배포 구성 |
 | | [기술 스택](docs/tech-stack.md) | 무엇을 왜 어디에 |
 | | [API 명세](docs/api/) | 서비스별 OpenAPI |
