@@ -2,16 +2,18 @@
 
 [← 요구사항](requirements.md) · [README](../README.md) · 다음: [기술 스택](tech-stack.md)
 
+> 1~4번 그림은 설계 단계에 그려 두기를 권합니다. 그림 내용은 예시이니 팀 서비스에 맞게 바꿉니다.
+
 > 그림은 Mermaid로 씁니다. GitHub에서 그림으로 바로 보입니다. 그림이 바뀌면 코드와 같은 PR에서 함께 고칩니다.
 
-## 1. 시스템 컨텍스트 (필수)
+## 1. 시스템 컨텍스트
 ```mermaid
 flowchart LR
   user([사용자]) --> svc[<우리 서비스>]
   svc --> ext[<외부 시스템 — 예: 메일>]
 ```
 
-## 2. 서비스 구성도 (필수)
+## 2. 서비스 구성도
 실선은 동기 호출(HTTP), 점선은 비동기(이벤트)입니다.
 ```mermaid
 flowchart LR
@@ -27,7 +29,7 @@ flowchart LR
 |---|---|---|---|
 | <서비스 A> | <이름> | | |
 
-## 3. 핵심 시나리오 시퀀스 (필수, 1~2개)
+## 3. 핵심 시나리오 시퀀스 (1~2개)
 ```mermaid
 sequenceDiagram
   actor U as 사용자
@@ -42,7 +44,7 @@ sequenceDiagram
   Note over B,A: A가 응답하지 않으면 <타임아웃 2초 후 503>
 ```
 
-## 4. 배포 구성도 (필수)
+## 4. 배포 구성도
 ```mermaid
 flowchart LR
   dev([개발자]) -->|PR · merge| gh[GitHub]
