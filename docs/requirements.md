@@ -3,6 +3,7 @@
 [← 기획서](plan.md) · [README](../README.md) · 다음: [아키텍처](architecture.md)
 
 > 채울 항목의 예입니다. 팀 프로젝트에 맞게 항목을 더하거나 빼도 됩니다.
+>
 > 외부 도구로 써도 됩니다(추천: [Notion](https://www.notion.so), GitHub Projects · Issues). 그 경우 이 파일에는 링크와 한 줄 요약만 남깁니다.
 
 ## 1. 기능 요구사항
