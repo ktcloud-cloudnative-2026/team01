@@ -2,6 +2,8 @@
 
 [← 기술 스택](../tech-stack.md) · [README](../../README.md)
 
+> 채울 항목의 예입니다. 팀 프로젝트에 맞게 항목을 더하거나 빼도 됩니다.
+
 - 서비스마다 OpenAPI 파일 하나: `docs/api/<서비스>.yaml` — 예시는 [example-service.yaml](example-service.yaml)
 - 편집 · 미리 보기: [Swagger Editor](https://editor.swagger.io)에 붙여 넣기
 - **개발 전에 확정**합니다. 바꿀 때는 PR로 바꾸고, 그 API를 쓰는 서비스 담당자가 승인합니다
