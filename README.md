@@ -11,7 +11,7 @@
 
 | 구분 | 문서 | 내용 |
 |---|---|---|
-| 기획 | [기획서](docs/Home_IoT_%EA%B8%B0%ED%9A%8D%EC%84%9C_v0.2.md) | 목표 · 범위 · 성공 기준 · 일정 |
+| 기획 | [기획서](docs/Home_IoT_기획서_v0.2.md) | 목표 · 범위 · 성공 기준 · 일정 |
 | | [요구사항](docs/requirements.md) | 기능(US-번호) · 비기능 |
 | 설계 | [아키텍처](docs/architecture.md) | 컨텍스트 · 서비스 구성 · 핵심 시퀀스 · 배포 구성 |
 | | [기술 스택](docs/tech-stack.md) | 무엇을 왜 어디에 |
