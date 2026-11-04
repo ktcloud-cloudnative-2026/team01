@@ -16,7 +16,7 @@ git config user.email "GitHub 계정 이메일"
 
 ## 팀 첫날 설정
 
-저장소에는 main 보호 규칙(PR, 승인 1명)이 기본으로 걸려 있습니다. 팀에 맞게 바꿔도 됩니다. 아래는 첫날 해 두면 좋은 일입니다.
+저장소에는 main 보호 규칙(PR 필수)이 기본으로 걸려 있습니다. 리뷰 승인은 필수가 아닙니다. 팀에 맞게 바꿔도 됩니다. 아래는 첫날 해 두면 좋은 일입니다.
 
 - [ ] README 맨 위 `<팀 이름> — <서비스 이름>`과 한 줄 소개를 바꿈
 - [ ] [역할](roles.md)에 팀원, GitHub 아이디, 맡은 서비스, 공통 영역 적기
@@ -54,7 +54,7 @@ git push -u origin feat/12-seat-list
 ```
 
 5. 저장소 화면의 Compare & pull request 버튼으로 PR을 엽니다. 본문에 `Closes #12`를 적습니다.
-6. 팀원 1명이 승인하면 Squash and merge 합니다. 이슈가 닫히고 보드 카드가 Done으로 이동합니다.
+6. Squash and merge 합니다(팀원 리뷰는 선택). 이슈가 닫히고 보드 카드가 Done으로 이동합니다.
 7. main으로 돌아와 정리합니다.
 
 ```bash
@@ -67,7 +67,7 @@ git branch -D feat/12-seat-list
 
 1. PR의 Files changed 탭에서 바뀐 내용을 봅니다.
 2. 궁금한 줄에 댓글을 답니다.
-3. Review changes에서 Approve 또는 Request changes를 고릅니다.
+3. Review changes에서 Approve 또는 Request changes를 고릅니다(리뷰는 선택, 승인 없이도 병합됨).
 
 ## 자주 생기는 일
 
