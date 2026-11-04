@@ -3,6 +3,7 @@
 [← 기술 스택](../tech-stack.md) · [README](../../README.md)
 
 > 채울 항목의 예입니다. 팀 프로젝트에 맞게 항목을 더하거나 빼도 됩니다.
+>
 > 외부 도구로 써도 됩니다(추천: [Swagger Editor](https://editor.swagger.io), [Postman](https://www.postman.com)). 그 경우 이 파일에는 링크와 한 줄 요약만 남깁니다.
 
 - 서비스마다 OpenAPI 파일 하나: `docs/api/<서비스>.yaml` — 예시는 [example-service.yaml](example-service.yaml)
