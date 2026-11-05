@@ -14,6 +14,6 @@
 |이수영| @sooyeong-lee| | 클러스터 · GitOps |
 |신민혁| @smh4261| | 관측 |
 |최명진| @insider1004| | 보안 · 게이트웨이 |
-| | @ | | (5명 팀) 테스트 · 품질 |
+|김영준 | @gray-apple12| | (5명 팀) 테스트 · 품질 |
 
 - 서비스 폴더의 리뷰어는 [CODEOWNERS](../.github/CODEOWNERS)에 같은 내용으로 적습니다
