@@ -13,7 +13,7 @@
 | | [요구사항](docs/Home_IoT_Requirements_v0.1.md) | 기능(US-번호) · 비기능 |
 | 설계 | [아키텍처](docs/Home_IoT_Architecture.pdf) | 컨텍스트 · 서비스 구성 · 핵심 시퀀스 · 배포 구성 |
 | | [기술 스택](docs/tech-stack.md) | 무엇을 왜 어디에 |
-| | [API 명세](docs/api/) | 서비스별 OpenAPI |
+| | [API 명세](docs/api-spec.md) | 서비스별 OpenAPI |
 | | [ERD](docs/erd/) | 서비스별 DB |
 | | [관측 설계](docs/observability.md) | 지표 · 로그 · 알림 |
 | 협업 | [역할](docs/roles.md) | 서비스 담당 · 공통 영역 담당 |
