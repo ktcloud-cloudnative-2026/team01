@@ -1,5 +1,7 @@
 # <비전어스> — <Home IoT 플랫폼>
-
+<p align="center">
+  <img src="docs/README%20banner.png" alt="비전어스 Home IoT 플랫폼 배너" width="100%">
+</p>
 
 ### 소개🔻
 가정에서 사용하는 여러 전자기기를 하나의 플랫폼에 연결하고, 스마트폰이나 웹에서 상태를 확인하거나 원격으로 제어하는 시스템입니다.
