@@ -2,20 +2,86 @@
 
 [← README](../../README.md)
 
-> 채울 항목의 예입니다. 팀 프로젝트에 맞게 항목을 더하거나 빼도 됩니다.
->
-> 외부 도구로 써도 됩니다(추천: [dbdiagram.io](https://dbdiagram.io), [ERDCloud](https://www.erdcloud.com)). 그 경우 이 파일에는 링크와 한 줄 요약만 남깁니다.
-
 - 서비스마다 자기 DB를 가집니다. 다른 서비스의 DB는 직접 읽지 않고 API를 호출합니다
-- [dbdiagram.io](https://dbdiagram.io)의 DBML 또는 아래처럼 Mermaid로 씁니다
+- 전체 그림: [Home_IoT_ERD.svg](Home_IoT_ERD.svg)
 
-## <서비스 A>
+![Home IoT ERD](Home_IoT_ERD.svg)
+
+## 전체 테이블
+
 ```mermaid
 erDiagram
-  ITEM {
-    int id PK
-    string status
-    datetime created_at
+  users ||--o{ refresh_tokens : ""
+  users ||--o{ devices : ""
+  users ||--o{ commands : ""
+  devices ||--o{ commands : ""
+  devices ||--o{ device_states : ""
+  devices ||--o{ device_events : ""
+  devices ||--o{ simulators : ""
+  devices ||--o{ elevator_calls : ""
+
+  users {
+    bigint user_id PK
+    varchar email
+    varchar password_hash
+    varchar name
+    timestamptz created_at
+  }
+  refresh_tokens {
+    bigint token_id PK
+    bigint user_id FK
+    varchar token_hash
+    varchar password_hash
+    timestamptz expires_at
+    timestamptz revoked_at
+  }
+  devices {
+    varchar device_id PK
+    bigint user_id FK
+    varchar device_name
+    varchar device_type
+    varchar status
+    timestamptz last_seen_at
+    timestamptz created_at
+  }
+  commands {
+    bigint command_id PK
+    bigint user_id FK
+    varchar device_id FK
+    varchar command
+    jsonb params
+    varchar status
+    timestamptz requested_at
+    timestamptz completed_at
+  }
+  device_states {
+    varchar device_id PK, FK
+    bigint power
+    jsonb state
+    timestamptz updated_at
+  }
+  device_events {
+    bigint event_id PK
+    varchar device_id FK
+    varchar event_type
+    jsonb payload
+    timestamptz occurred_at
+  }
+  simulators {
+    bigint simulator_id PK
+    varchar device_id FK
+    varchar type
+    varchar status
+    integer interval_sec
+  }
+  elevator_calls {
+    varchar call_id PK
+    varchar device_id FK
+    bigint user_id
+    integer floor
+    varchar direction
+    varchar status
+    timestamptz requested_at
   }
 ```
 
