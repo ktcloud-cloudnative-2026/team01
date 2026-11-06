@@ -2,33 +2,58 @@
 
 [← README](../README.md)
 
-> 시작용 예시입니다. 팀에서 정한 내용으로 고치거나, 필요 없으면 지워도 됩니다.
->
-> 외부 도구로 써도 됩니다(추천: [Notion](https://www.notion.so)). 그 경우 이 파일에는 링크와 한 줄 요약만 남깁니다.
+> Home IoT 시스템(MSA) 관측 설계 초안입니다.
+> 서비스: Gateway(Envoy Gateway) · Auth Service · Device Service · MQTT Broker · 기기 시뮬레이터.
 
 ## 1. 공통 지표 (모든 서비스) — 골든 시그널: 지연 · 트래픽 · 에러 · 포화
-| 지표 | 이름(Prometheus) | 대시보드 |
-|---|---|---|
-| 요청 수 | | |
-| 에러율 | | |
-| 응답 시간(p95) | | |
-| CPU · 메모리 · 재시작 수 | | |
 
-## 2. 업무 지표 (서비스별) — [성공 기준](plan.md#5-성공-기준-숫자로)에서
+| 지표 | 이름(Prometheus) | 대시보드 |
+|------|------------------|----------|
+| 요청 수 | `http_requests_total{service,method,route,status}` | Grafana · 서비스 공통 |
+| 에러율 | `http_requests_total{status=~"5.."}` ÷ 전체 요청 수 | Grafana · 서비스 공통 |
+| 응답 시간(p95) | `histogram_quantile(0.95, http_request_duration_seconds_bucket)` | Grafana · 서비스 공통 |
+| CPU · 메모리 · 재시작 수 | `container_cpu_usage_seconds_total` · `container_memory_working_set_bytes` · `kube_pod_container_status_restarts_total` | Grafana · 클러스터/Pod |
+
+- Auth · Device Service(Node.js/Express)는 `prom-client`로 `/metrics`를 노출합니다.
+- Gateway(Envoy Gateway)는 Envoy 기본 지표(`envoy_cluster_upstream_rq_*`, `envoy_cluster_upstream_rq_time`)로 같은 항목을 대신합니다.
+
+## 2. 업무 지표 (서비스별) — [성공 기준](./plan.md#5-성공-기준-숫자로)에서
+
+> 성공 기준 문서가 확정되면 목표 숫자를 맞춰 조정합니다.
+
 | 서비스 | 지표 | 왜 |
-|---|---|---|
-| | | |
+|--------|------|----|
+| Auth Service | `auth_login_total{result=success\|fail}` | 로그인 실패 급증(오류·무차별 대입) 확인 |
+| Gateway | `gateway_jwt_rejected_total{reason}` | 토큰 만료·위조로 거부되는 요청 파악 |
+| Device Service | `device_control_total{device,result}` | 기기별(조명·에어컨·난방기기·공기청정기·커튼·엘리베이터 호출) 제어 성공/실패 |
+| Device Service | `device_control_latency_seconds` (명령 발행 → 상태 수신) | 사용자가 체감하는 제어 반응 시간 |
+| Device Service | `mqtt_publish_failed_total` | 명령이 브로커에 전달되지 않는 경우 감지 |
+| MQTT Broker | 연결 클라이언트 수 · 메시지 수신/발행 수 | 브로커 단절·메시지 정체 확인 |
+| 기기 시뮬레이터 | `simulator_state_published_total{device}` | 시뮬레이터가 상태를 정상 발행하는지 확인 |
 
 ## 3. 로그 형식 (모든 서비스 같게)
-```json
-{"time":"2026-11-04T09:00:00+09:00","level":"info","service":"<서비스>","request_id":"<id>","message":"<내용>"}
+
+```
+{"time":"2026-11-05T09:00:00+09:00","level":"info","service":"device-service","request_id":"<id>","message":"light control requested"}
 ```
 
+- 필수 필드: `time` · `level` · `service` · `request_id` · `message`
+- 한 줄에 JSON 하나로 stdout에 출력합니다. 비밀번호·JWT 원문은 기록하지 않습니다.
+- 기기 제어 로그에는 `device`, `command`를 추가로 넣어 MQTT 명령/상태와 같은 `request_id`로 추적합니다.
+
 ## 4. 알림 기준
+
 | 조건 | 받는 사람 | 대응 문서(런북) |
-|---|---|---|
-| <에러율 5%가 5분 넘음> | | |
+|------|-----------|-----------------|
+| 에러율 5%가 5분 넘음 | 관측 영역 담당 | `runbooks/high-error-rate.md` (작성 예정) |
+| p95 응답 시간 1초가 5분 넘음 | 관측 영역 담당 | `runbooks/slow-response.md` (작성 예정) |
+| Pod 재시작 5분 내 3회 이상 | 관측 영역 담당 | `runbooks/pod-restart.md` (작성 예정) |
+| 기기 제어 실패율 10%가 5분 넘음 | Device Service 담당 | `runbooks/device-control-failure.md` (작성 예정) |
+| MQTT Broker 연결 클라이언트 0 (2분 이상) | 관측 영역 담당 | `runbooks/mqtt-disconnected.md` (작성 예정) |
 
 ## 5. 코드에 처음부터 넣을 것
-- [ ] `/metrics` 엔드포인트
-- [ ] 요청 ID 헤더를 받아서 다음 서비스로 전달
+
+- [ ] `/metrics` 엔드포인트 (Auth · Device Service · 시뮬레이터)
+- [ ] 요청 ID 헤더(`x-request-id`)를 받아서 다음 서비스와 MQTT 메시지로 전달 (없으면 Gateway에서 생성)
+- [ ] JSON 로그 형식 (3번) 공통 로거 사용
+- [ ] `/health` 엔드포인트 (쿠버네티스 probe용)
